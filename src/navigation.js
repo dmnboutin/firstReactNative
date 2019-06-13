@@ -1,4 +1,4 @@
-import { Navigation } from 'react-native-navigation'
+import {Navigation} from 'react-native-navigation'
 
 export const goToAuth = () => Navigation.setRoot({
     root: {
@@ -28,18 +28,6 @@ export const goToAuth = () => Navigation.setRoot({
                             }
                         }
                     },
-                },
-                {
-                    component: {
-                        name: 'SignUp2',
-                        options: {
-                            bottomTab: {
-                                text: 'Sign Up again',
-                                fontSize: 12,
-                                icon: require('./assets/signup.png')
-                            }
-                        }
-                    },
                 }
             ],
         }
@@ -48,15 +36,23 @@ export const goToAuth = () => Navigation.setRoot({
 
 export const goHome = () => Navigation.setRoot({
     root: {
-        stack: {
-            id: 'App',
-            children: [
-                {
-                    component: {
-                        name: 'Home',
-                    }
+        sideMenu: {
+            left: {
+                component: {
+                    name: 'Menu',
                 }
-            ],
+            },
+            center: {
+                stack: {
+                    options: {},
+                    children: [{
+                        component: {
+                            id: 'App',
+                            name: 'Home',
+                        }
+                    }]
+                }
+            }
         }
     }
 });
