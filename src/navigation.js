@@ -40,6 +40,7 @@ export const goHome = () => Navigation.setRoot({
             left: {
                 component: {
                     name: 'Menu',
+                    id: 'leftSideDrawer'
                 }
             },
             center: {

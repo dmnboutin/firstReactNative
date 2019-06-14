@@ -14,6 +14,12 @@ export default class Screen2 extends React.Component {
                 title: {
                     text: 'Screen 2'
                 },
+                rightButtons: [
+                    {
+                        icon: require('./assets/menu.png'),
+                        id: 'openMenu',
+                    },
+                ]
             }
         };
     }

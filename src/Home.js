@@ -11,6 +11,7 @@ import { goToAuth } from './navigation'
 import {Navigation} from 'react-native-navigation';
 
 import { USER_KEY } from './config'
+import {navigationPush, openMenu} from './common';
 
 export default class Home extends React.Component {
     static get options() {
@@ -19,9 +20,21 @@ export default class Home extends React.Component {
                 title: {
                     text: 'Home'
                 },
+                rightButtons: [
+                    {
+                        icon: require('./assets/menu.png'),
+                        id: 'openMenu',
+                    },
+                ]
             }
         };
     }
+
+    constructor(props) {
+        super(props);
+        Navigation.events().bindComponent(this); // <== Will be automatically unregistered when unmounted
+    }
+
     logout = async () => {
         try {
             await AsyncStorage.removeItem(USER_KEY)
@@ -29,7 +42,7 @@ export default class Home extends React.Component {
         } catch (err) {
             console.log('error signing out...: ', err)
         }
-    }
+    };
     render() {
         return (
             <View style={styles.container}>
@@ -40,16 +53,16 @@ export default class Home extends React.Component {
                 />
                 <Button
                     onPress={() => {
-                        Navigation.push(this.props.componentId, {
-                            component: {
-                                name: 'Screen2',
-                            }
-                        });
+                        navigationPush('Screen2');
                     }}
                     title="View next screen"
                 />
             </View>
         )
+    }
+
+    navigationButtonPressed({ buttonId }) {
+        openMenu();
     }
 }
 

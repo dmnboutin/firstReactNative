@@ -11,7 +11,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import CreateAccount from './CreateAccount';
 import Header from './Header';
 import Menu from './Menu';
-import FetchExample from './FetchExample';
+import FetchExample from '../src/FetchExample';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
