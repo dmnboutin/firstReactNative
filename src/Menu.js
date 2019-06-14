@@ -13,7 +13,7 @@ export default class Menu extends React.Component {
             await AsyncStorage.removeItem(USER_KEY)
             goToAuth()
         } catch (err) {
-            console.log('error signing out...: ', err)
+            console.log('er signing out...: ', err)
         }
     };
 
